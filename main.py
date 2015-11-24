@@ -5,8 +5,8 @@ import numpy as np
 import time
 #import networkx as nx
 #import os
-from Graph import graph
-from test_fast import pageRank
+#from Graph import graph
+from pr_test import pageRank
 
 
 start_time = time.time()

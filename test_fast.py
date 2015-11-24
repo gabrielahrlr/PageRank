@@ -14,7 +14,9 @@ def pageRank(vertices, edges):
         sum_com = dead_ends(vertices, edges, p)
         for i in np.arange(len(q)):
             node = vertices.loc[vertices.index[i]].IATA
-            orgAirports = edges.loc[edges.DstIATA == node].OrgIATA.values
+            mask = (edges['DstIATA'].shift(1) == node)
+            orgAirports = edges[mask].OrgIATA.values
+            #orgAirports = edges.loc[edges.DstIATA == node].OrgIATA.values
             sum_default = sum_com
             if orgAirports.any():
                 idx_codes = vertices.index[vertices['IATA'].isin(orgAirports)].values
