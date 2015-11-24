@@ -2,17 +2,18 @@ __author__ = 'Gabriela & Maìra'
 
 import pandas as ps
 import numpy as np
-import networkx as nx
-import os
+import time
+#import networkx as nx
+#import os
+from Graph import graph
+from test_fast import pageRank
 
 
-
-
-
+start_time = time.time()
 # Read airports and routes
 
-airports = ps.read_csv('~/Documents/GitHub/Lab3-IR/airports.txt', header=None)
-routes = ps.read_csv('~/Documents/GitHub/Lab3-IR/routes.txt', header=None)
+airports = ps.read_csv('airports.txt', header=None)
+routes = ps.read_csv('routes.txt', header=None)
 
 #Cleaning data
 
@@ -34,8 +35,14 @@ airports = airports.drop([3670, 6271])
 #  Hash Table for airports:
 
 idx = ps.unique(airports.IATA.ravel())
+idx_n = np.arange(5742)
 hashT = airports[['AirportID', 'AirportName', 'IATA']]
-vertices = hashT.set_index(idx)
+airports = hashT.set_index(idx)
+hashT = hashT.set_index(idx_n)
+vertices = airports[['IATA']]
+vertices = vertices.set_index(idx_n)
+
+
 
 # Table for routes:
 
@@ -47,24 +54,58 @@ routes= routes[['OrgIATA', 'DstIATA']]
 
 # EDGES Computation
 
-edges = routes.groupby(['OrgIATA', 'DstIATA']).size()
-edges = edges.reset_index()
+edgesT = routes.groupby(['OrgIATA', 'DstIATA']).size()
+#edgesT = edgesT.rename(columns={0: 'Weight'})
+edges = edgesT.reset_index()
 edges = edges.rename(columns={0: 'Weight'})
+edges = edges[edges['OrgIATA'].isin(hashT.IATA)]
 
-airportEdges = edges.loc[edges['OrgIATA'] == 'AAE']
-airportOutj = airportEdges.Weight.sum()
+#nod =  vertices.loc[vertices.index[5738]].IATA
+#nodew = vertices[vertices.index==5738].IATA.values[0]
+#orgAirports = edges.loc[edges.DstIATA == nodew].OrgIATA.tolist()
+#print(nod)
+
+#print(edges)
+#g = graph(vertices, edges)
+
+
+pr = pageRank(hashT, edges)
+#np.savetxt("foo2.csv", pr, delimiter=",")
+
+#print(pr)
+print('sum of PR', sum(pr))
+#print(g['TSE']['k'])
+#pr = pageRank(g)
+#print(pr)
+#print(sum(pr))
+#print(g)
+print("--- %s seconds ---" % (time.time() - start_time))
+
+
+
+#print(hashT.head())
+#print(edges.head())
+
+#graph = {j: g['DstIATA'].tolist() for j,g in edges.groupby('OrgIATA') }
+
+#airportEdges = edges.loc[edges['OrgIATA'] == 'AAE']
+#airportOutj = airportEdges.Weight.sum()
+
+
 #print(airportEdges)
 #print(airportOutj)
 #dup2 = edges[edges.OrgIATA.duplicated()]
 #print(len(vertices))
 #print(edges)
 
-print(edges)
 
-
+#print(vertices)
+#print(edges.loc[vertices['IATA']=='GKA'])
+#print(edges)
+#print(edges.loc[edges['OrgIATA']== 'AAE'])
 # Graph
-verti = vertices.index.values.tolist()
-DG = nx.DiGraph()
+
+
 #DG = DG.add_node(verti)
 
 #print(type(verti))
