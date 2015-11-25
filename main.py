@@ -58,8 +58,18 @@ edgesT = routes.groupby(['OrgIATA', 'DstIATA']).size()
 #edgesT = edgesT.rename(columns={0: 'Weight'})
 edges = edgesT.reset_index()
 edges = edges.rename(columns={0: 'Weight'})
-edges = edges[edges['OrgIATA'].isin(hashT.IATA)]
+mask = edges['OrgIATA'].isin(hashT.IATA)
+not_in_Ver = edges[~mask]
+edges_C = edges[edges['OrgIATA'].isin(hashT.IATA)]
+edges_Clean = edges[edges['DstIATA'].isin(hashT.IATA)]
 
+#print(not_in_Ver)
+#print(edges.loc[edges['DstIATA']=='ABB'])
+#print(edges_C.loc[edges.DstIATA == 'ABB'])
+#print(edges_Clean.loc[edges.DstIATA == 'ABB'])
+#print(vertices.loc[vertices['IATA'].isin(['ABV','LOS'])])
+#vertices2 = vertices.IATA.tolist()
+#print(type(vertices2))
 #nod =  vertices.loc[vertices.index[5738]].IATA
 #nodew = vertices[vertices.index==5738].IATA.values[0]
 #orgAirports = edges.loc[edges.DstIATA == nodew].OrgIATA.tolist()
@@ -68,12 +78,11 @@ edges = edges[edges['OrgIATA'].isin(hashT.IATA)]
 #print(edges)
 #g = graph(vertices, edges)
 
-
-pr = pageRank(hashT, edges)
-#np.savetxt("foo2.csv", pr, delimiter=",")
+#pr = pageRank(hashT, edges_Clean)
+#np.savetxt("foo4.csv", pr, delimiter=",")
 
 #print(pr)
-print('sum of PR', sum(pr))
+#print('sum of PR', sum(pr))
 #print(g['TSE']['k'])
 #pr = pageRank(g)
 #print(pr)
