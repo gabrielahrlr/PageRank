@@ -5,6 +5,7 @@ import numpy as np
 import time
 #from main import *
 from PRcomputation import *
+from pr_test import *
 
 start_time = time.time()
 
@@ -38,7 +39,8 @@ hashT = hashT.set_index(idx_n)
 vertices = airports[['IATA']]
 vertices = vertices.set_index(idx_n)
 vertices = vertices.sort_values(by = 'IATA', axis = 0)
-vertices = vertices.reset_index()
+#vertices = vertices.reset_index()
+vertices = vertices.set_index(idx_n)
 
 
 
@@ -62,15 +64,22 @@ edges_C = edges[edges['OrgIATA'].isin(hashT.IATA)]
 edges_Clean = edges_C[edges_C['DstIATA'].isin(hashT.IATA)]
 
 pr = page_rank(vertices, edges_Clean)
+#np.savetxt("foo5.csv", pr, delimiter=",")
 print(sum(pr))
 
 # Compute the
 
 
 
-# pointed_by = edges.OrgIATA[edges.DstIATA == 'POM'].values
+#pointed_by = edges_Clean.OrgIATA[edges_Clean.DstIATA == 'AAL'].values
+#print(edges_Clean[(edges_Clean.OrgIATA.isin(pointed_by)) & (edges_Clean.DstIATA == 'AAL')])
+#print(vertices[vertices.IATA.isin(pointed_by)])
 # filtering = vertices[vertices.IATA.isin(pointed_by)]
 # idx_j = filtering.index.values
+# print(vertices[vertices.IATA.isin(pointed_by)])
+# print(idx_j)
+# # filtering = vertices[vertices.IATA.isin(pointed_by)]
+# # idx_j = filtering.index.values
 # #airports_j = filtering.IATA.values
 # g = edges[(edges.OrgIATA.isin(pointed_by)) & (edges.DstIATA == 'POM')]
 # w_ji = g.Weight.values
@@ -89,8 +98,8 @@ print(sum(pr))
 # print(hashT.loc[hashT.IATA.isin(['BNE', 'BUA', 'BUL', 'CEB'])])
 
 
-# n = len(vertices)
-# p = np.ones(n)/n
+#n = len(vertices)
+#p = np.ones(n)/n
 # sum_de =dead_ends(vertices, edges_Clean, p)
 # pointed_by = edges_Clean.OrgIATA[edges_Clean.DstIATA == 'POM'].values
 # filtering = vertices[vertices.IATA.isin(pointed_by)]
@@ -118,5 +127,18 @@ print(sum(pr))
 # print(len(p_j))
 # print(sum_ji)
 #print(edges_Clean.Weight[edges_Clean.OrgIATA == 'ALG'].sum())
+
+# idx_de = vertices['IATA'].isin(edges_Clean.OrgIATA)
+# dead_ends = vertices[~idx_de].IATA.values
+# mask = (vertices['IATA'].isin(dead_ends))
+# idx_code = vertices.index[mask].values
+# p2 = p[idx_code]
+# add = p2/n
+# add = sum(add)
+# print(add)
+# print(idx_de)
+# print(dead_ends)
+# print(idx_code)
+
 
 print("--- %s seconds ---" % (time.time() - start_time))
