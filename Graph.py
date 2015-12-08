@@ -1,6 +1,6 @@
 import pandas as ps
 import time
-from PRAirports import *
+from PageRank import *
 __author__ = 'Gabriela'
 
 # Read airports and routes
