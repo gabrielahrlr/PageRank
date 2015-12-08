@@ -1,0 +1,241 @@
+PAGE RANK PERFORMANCE
+
+============================== lambda = 0.9 ================================
+
+lambda = 0.9
+tolerance error level = 10-8
+number of iterations = 95
+time = 54.19 seconds
+First 11 Results:
+      Airport_Rank Airport_IATA
+0         0.006228          LAX
+1         0.006212          ORD
+2         0.005985          DEN
+3         0.005078          LHR
+4         0.004920          CDG
+5         0.004843          PEK
+6         0.004785          FRA
+7         0.004697          SIN
+8         0.004687          ATL
+9         0.004426          JFK
+10        0.004390          AMS
+
+Last 5 Results:
+5737      0.000028          LPR
+5738      0.000028          LPS
+5739      0.000028          LPX
+5740      0.000028          LRA
+5741      0.000028          ZZU
+
+
+lambda = 0.9
+tolerance error level = 10-5
+number of iterations = 30
+time = 17.88 seconds
+First 11 Results:
+      Airport_Rank Airport_IATA
+0         0.006230          LAX
+1         0.006213          ORD
+2         0.005987          DEN
+3         0.005076          LHR
+4         0.004916          CDG
+5         0.004838          PEK
+6         0.004781          FRA
+7         0.004696          SIN
+8         0.004688          ATL
+9         0.004426          JFK
+10        0.004386          AMS
+
+Last 5 Results:
+5737      0.000028          LPR
+5738      0.000028          LPS
+5739      0.000028          LPX
+5740      0.000028          LRA
+5741      0.000028          ZZU
+
+
+
+lambda = 0.9
+tolerance error level = 10-3
+number of iterations = 4
+time = 2.3011 seconds
+
+First 11 results:
+      Airport_Rank Airport_IATA
+0         0.005900          DEN
+1         0.005545          ORD
+2         0.005441          LAX
+3         0.004439          SYD
+4         0.004286          ATL
+5         0.004151          SIN
+6         0.004127          DME
+7         0.003998          DFW
+8         0.003950          LHR
+9         0.003874          CDG
+10        0.003823          BOG
+
+Last 5 results:
+5737      0.000037          LPR
+5738      0.000037          LPS
+5739      0.000037          LPX
+5740      0.000037          LRA
+5741      0.000037          ZZU
+
+================================== lambda = 0.85 ==================================
+
+lambda = 0.85
+tolerance error level = 10-8
+number of iterations = 62
+time = 37.362 seconds
+First 11 results:
+      Airport_Rank Airport_IATA
+0         0.005591          ORD
+1         0.005585          LAX
+2         0.005561          DEN
+3         0.004365          LHR
+4         0.004287          ATL
+5         0.004242          CDG
+6         0.004214          PEK
+7         0.004213          SIN
+8         0.004117          FRA
+9         0.003957          SYD
+10        0.003864          DFW
+
+Last 5 results:
+5737      0.000041          LPR
+5738      0.000041          LPS
+5739      0.000041          LPX
+5740      0.000041          LRA
+5741      0.000041          ZZU
+
+lambda = 0.85
+tolerance error level = 10-5
+number of iterations = 19
+time = 11.52 seconds
+
+First 11 results:
+      Airport_Rank Airport_IATA
+0         0.005591          ORD
+1         0.005588          LAX
+2         0.005563          DEN
+3         0.004361          LHR
+4         0.004287          ATL
+5         0.004236          CDG
+6         0.004215          SIN
+7         0.004204          PEK
+8         0.004111          FRA
+9         0.003967          SYD
+10        0.003865          DFW
+
+Last 5 results:
+5737      0.000041          LPR
+5738      0.000041          LPS
+5739      0.000041          LPX
+5740      0.000041          LRA
+5741      0.000041          ZZU
+
+
+lambda = 0.85
+tolerance error level = 10-3
+number of iterations = 4
+time = 2.05 seconds
+First 11 results:
+      Airport_Rank Airport_IATA
+0         0.005518          DEN
+1         0.005132          ORD
+2         0.004983          LAX
+3         0.004160          SYD
+4         0.004014          ATL
+5         0.003942          DME
+6         0.003780          DFW
+7         0.003763          SIN
+8         0.003619          BOG
+9         0.003548          LHR
+10        0.003545          PEK
+
+Last 5 Results:
+5737      0.000048          LPR
+5738      0.000048          LPS
+5739      0.000048          LPX
+5740      0.000048          LRA
+5741      0.000048          ZZU
+
+=================================== lambda = 0.8 ======================================
+
+lambda = 0.8
+tolerance error level = 10-8
+number of iterations = 45
+time = 28.12 seconds
+First 11 results:
+      Airport_Rank Airport_IATA
+0         0.005165          DEN
+1         0.005053          ORD
+2         0.004999          LAX
+3         0.003936          ATL
+4         0.003781          SYD
+5         0.003766          LHR
+6         0.003755          SIN
+7         0.003729          PEK
+8         0.003683          CDG
+9         0.003612          DFW
+10        0.003571          FRA
+
+Last 5 results:
+5737      0.000053          LPR
+5738      0.000053          LPS
+5739      0.000053          LPX
+5740      0.000053          LRA
+5741      0.000053          ZZU
+
+
+lambda = 0.8
+tolerance error level = 10-5
+number of iterations = 14
+time = 8.22 seconds
+First 11 results:
+      Airport_Rank Airport_name
+0         0.005165          DEN
+1         0.005051          ORD
+2         0.005001          LAX
+3         0.003935          ATL
+4         0.003792          SYD
+5         0.003762          LHR
+6         0.003758          SIN
+7         0.003718          PEK
+8         0.003676          CDG
+9         0.003612          DFW
+10        0.003565          FRA
+
+Last 5 results:
+5737      0.000053          LPR
+5738      0.000053          LPS
+5739      0.000053          LPX
+5740      0.000053          LRA
+5741      0.000053          ZZU
+
+
+lambda = 0.8
+tolerance error level = 10-3
+number of iterations = 3
+time = 1.68 seconds
+First 11 results:
+      Airport_Rank Airport_name
+0         0.004499          DEN
+1         0.003925          LAX
+2         0.003896          ORD
+3         0.003625          SYD
+4         0.003549          DME
+5         0.003307          ATL
+6         0.003210          DFW
+7         0.003177          BOG
+8         0.002985          SIN
+9         0.002945          PEK
+10        0.002763          LHR
+
+Last 5 results:
+5737      0.000067          LPR
+5738      0.000067          LPS
+5739      0.000067          LPX
+5740      0.000067          LRA
+5741      0.000067          ZZU
+
