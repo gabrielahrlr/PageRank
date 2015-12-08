@@ -1,5 +1,6 @@
 import numpy as np
 __author__ = 'Gabriela'
+#This function computes the Page Rank
 
 
 def page_rank(n, airports_i, deadEnds_idx, no_input_idx ):
