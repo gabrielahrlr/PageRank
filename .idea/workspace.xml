@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="957867fd-b224-4bc2-92e5-7e486b7a2fc2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Graph.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PageRank-Performance" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PageRank.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results_Dampling_85" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Results_Dampling_90" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/airports.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/routes.txt" afterPath="" />
-    </list>
+    <list default="true" id="957867fd-b224-4bc2-92e5-7e486b7a2fc2" name="Default" comment="" />
     <ignored path="PageRank.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
