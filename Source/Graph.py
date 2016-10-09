@@ -1,31 +1,31 @@
 import pandas as ps
 import time
-from PageRank import *
+from Source.PageRankDef import *
 __author__ = 'Gabriela'
 
-# Read airports and routes
+#############################################################################################
+# This script  creates the Airport and Routes Network, and computes the
+# Page Rank Algorithm to find the most connected airports with its correspondent rank.
+#############################################################################################
 
-airports = ps.read_csv('airports.txt', header=None)
-routes_input = ps.read_csv('routes.txt', header=None)
+# Read airports and routes
+airports = ps.read_csv('../Data/airports.txt', header=None)
+routes_input = ps.read_csv('../Data/routes.txt', header=None)
 
 # Cleaning data
-
 airports = airports.rename(columns ={0 : 'AirportID', 1: 'AirportName',
                                      2: 'MainCity', 3: 'Country', 4: 'IATA', 5: 'ICAO'})
 airports = airports[ps.notnull(airports['IATA'])]
 
 # Finding duplicated IATA codes
-
 dup = airports.IATA[airports.IATA.duplicated()].values
 val = ['BFT', 'ZYA']
 dupRows = airports[airports['IATA'].isin(val)]
 
 # 1st Assumption: Eliminate duplicated airports whit the same IATA code
-
 airports = airports.drop([3670, 6271])
 
 #  Hash Table for airports:
-
 idx_n = np.arange(5742)
 hashT = airports[['AirportID', 'AirportName', 'IATA']]
 hashT = hashT.set_index(idx_n)
@@ -38,7 +38,6 @@ vertices = vertices.set_index(idx_n)
 nodes = vertices.reset_index().set_index('IATA')
 
 # Development of the "Graph" :
-
 routes = routes_input.rename(columns ={0 : 'AirlineCode', 1: 'OF-AirlineCode',
                                      2: 'OrgIATA', 3: 'OFCode', 4: 'DstIATA'})
 routes = routes[['OrgIATA', 'DstIATA']]
@@ -61,25 +60,20 @@ airports_i = ps.concat([edges_r2.DstIATA, edges_r2.OrgIATA, edges_r3.Weight, ed_
 
 
 # DEAD ENDS : nodes with no outgoing routes:
-
 idx_de = vertices.IATA.isin(out_j.OrgIATA)
 deadEnds_idx = vertices.index[~idx_de].values
 
 # Nodes with no incoming routes:
-
 idx_ne = vertices.IATA.isin(airports_i.DstIATA)
 no_input = vertices[~idx_ne]
 no_input_idx = no_input.index.values
 
 
 # Vertices - vertices with no incoming routes
-
 vertices_rest = vertices[~vertices.IATA.isin(no_input.IATA)]
 airports_i['DstIDX'] = vertices_rest.index
 
 # Page Rank evaluation:
-
-
 n = len(vertices)
 
 # Time for computing the Page Rank Algorithm
@@ -98,8 +92,9 @@ result = result.sort_values(by='Airport_Rank', axis=0, ascending=0 )
 
 # Final result
 result = result.set_index(idx_res)
-
 #print(airports_i)
+
+
 # IF you want to get your results in a csv uncomment the below line.
 #result.to_csv("Results_85.csv", sep=',')
 
